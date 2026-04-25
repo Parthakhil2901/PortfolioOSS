@@ -4,27 +4,17 @@ import tailwindcss from "@tailwindcss/vite";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "#src/components": resolve(
-        dirname(fileURLToPath(import.meta.url)),
-        "src/components",
-      ),
-      "#src/constants": resolve(
-        dirname(fileURLToPath(import.meta.url)),
-        "src/constants",
-      ),
-      "#src/store": resolve(
-        dirname(fileURLToPath(import.meta.url)),
-        "src/store",
-      ),
-      "#src/hoc": resolve(dirname(fileURLToPath(import.meta.url)), "src/hoc"),
-      "src/#windows": resolve(
-        dirname(fileURLToPath(import.meta.url)),
-        "src/windows",
-      ),
+      "#components": resolve(__dirname, "src/components"),
+      "#constants": resolve(__dirname, "src/constants"),
+      "#store": resolve(__dirname, "src/store"),
+      "#hoc": resolve(__dirname, "src/hoc"),
+      "#windows": resolve(__dirname, "src/windows"),
     },
   },
 });
