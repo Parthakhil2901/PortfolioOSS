@@ -58,22 +58,21 @@ const Dock = () => {
     };
   }, []);
 
-  const toggleApp = (app) => {
-    if (!app.canOpen) return;
+  const toggleApp = (id, canOpen) => {
+    if (!canOpen) return;
 
-    const window = windows[app.id];
+    const window = windows[id];
 
     if (!window) {
-      console.error(`App with id ${app.id} not found in windows store.`);
+      console.error(`App with id ${id} not found in windows store.`);
       return;
     }
 
     if (window.isOpen) {
-      closeWindow(app.id);
+      closeWindow(id);
     } else {
-      openWindow(app.id);
+      openWindow(id);
     }
-    console.log(windows);
   };
 
   return (
@@ -89,7 +88,7 @@ const Dock = () => {
               data-tooltip-content={name}
               data-tooltip-delay-show={150}
               disabled={!canOpen}
-              onClick={() => toggleApp({ id })}
+              onClick={() => toggleApp(id, canOpen)}
             >
               <img
                 src={`/images/${icon}`}
