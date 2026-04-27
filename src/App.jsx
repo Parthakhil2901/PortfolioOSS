@@ -1,8 +1,10 @@
 import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
+
 import { Navbar, Welcome } from "#components";
 import Dock from "#components/Dock";
-import { Draggable } from "gsap/Draggable";
-import { Terminal } from "#windows";
+import { Terminal, Safari } from "#windows";
+
 gsap.registerPlugin(Draggable);
 
 const App = () => {
@@ -12,6 +14,7 @@ const App = () => {
       <Welcome />
       <Dock />
       <Terminal />
+      <Safari />
     </main>
   );
 };
