@@ -3,7 +3,7 @@ import { Draggable } from "gsap/Draggable";
 
 import { Navbar, Welcome } from "#components";
 import Dock from "#components/Dock";
-import { Terminal, Safari } from "#windows";
+import { Terminal, Safari, Resume } from "#windows";
 
 gsap.registerPlugin(Draggable);
 
@@ -15,6 +15,7 @@ const App = () => {
       <Dock />
       <Terminal />
       <Safari />
+      <Resume />
     </main>
   );
 };
