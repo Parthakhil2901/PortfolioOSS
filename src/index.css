@@ -394,3 +394,18 @@ body {
     }
   }
 }
+body {
+  cursor:
+    url("/cursors/cursor-light.png") 4 4,
+    auto;
+}
+
+a,
+button,
+li,
+.icon,
+.dock-icon {
+  cursor:
+    url("/cursors/pointer.png") 8 8,
+    pointer;
+}

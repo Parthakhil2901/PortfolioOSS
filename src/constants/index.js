@@ -1,38 +1,14 @@
 const navLinks = [
-  {
-    id: 1,
-    name: "Projects",
-    type: "finder",
-  },
-  {
-    id: 3,
-    name: "Contact",
-    type: "contact",
-  },
-  {
-    id: 4,
-    name: "Resume",
-    type: "resume",
-  },
+  { id: 1, name: "Projects", type: "finder" },
+  { id: 3, name: "Contact", type: "contact" },
+  { id: 4, name: "Resume", type: "resume" },
 ];
 
 const navIcons = [
-  {
-    id: 1,
-    img: "/icons/wifi.svg",
-  },
-  {
-    id: 2,
-    img: "/icons/search.svg",
-  },
-  {
-    id: 3,
-    img: "/icons/user.svg",
-  },
-  {
-    id: 4,
-    img: "/icons/mode.svg",
-  },
+  { id: 1, img: "/icons/wifi.svg" },
+  { id: 2, img: "/icons/search.svg" },
+  { id: 3, img: "/icons/user.svg" },
+  { id: 4, img: "/icons/mode.svg" },
 ];
 
 const wallpapers = [
@@ -42,43 +18,14 @@ const wallpapers = [
 ];
 
 export { wallpapers };
+
 const dockApps = [
-  {
-    id: "finder",
-    name: "Portfolio", // was "Finder"
-    icon: "finder.png",
-    canOpen: true,
-  },
-  {
-    id: "safari",
-    name: "Articles", // was "Safari"
-    icon: "safari.png",
-    canOpen: true,
-  },
-  {
-    id: "photos",
-    name: "Gallery", // was "Photos"
-    icon: "photos.png",
-    canOpen: true,
-  },
-  {
-    id: "contact",
-    name: "Contact", // or "Get in touch"
-    icon: "contact.png",
-    canOpen: true,
-  },
-  {
-    id: "terminal",
-    name: "Skills", // was "Terminal"
-    icon: "terminal.png",
-    canOpen: true,
-  },
-  {
-    id: "trash",
-    name: "Archive", // was "Trash"
-    icon: "trash.png",
-    canOpen: false,
-  },
+  { id: "finder", name: "Portfolio", icon: "finder.png", canOpen: true },
+  { id: "safari", name: "Articles", icon: "safari.png", canOpen: true },
+  { id: "photos", name: "Gallery", icon: "photos.png", canOpen: true },
+  { id: "contact", name: "Contact", icon: "contact.png", canOpen: true },
+  { id: "terminal", name: "Skills", icon: "terminal.png", canOpen: true },
+  { id: "trash", name: "Archive", icon: "trash.png", canOpen: false },
 ];
 
 const blogPosts = [
@@ -107,18 +54,9 @@ const blogPosts = [
 ];
 
 const techStack = [
-  {
-    category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript"],
-  },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
-  {
-    category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
-  },
+  { category: "Frontend", items: ["React.js", "Next.js", "TypeScript"] },
+  { category: "Mobile", items: ["React Native", "Expo"] },
+  { category: "Styling", items: ["Tailwind CSS", "Sass", "CSS"] },
   {
     category: "Backend",
     items: ["Node.js", "Express", "NestJS", "Firebase", "Supabase", "RUST"],
@@ -127,10 +65,7 @@ const techStack = [
     category: "Database",
     items: ["MongoDB", "PostgreSQL", "MySQL", "Redis"],
   },
-  {
-    category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
-  },
+  { category: "Dev Tools", items: ["Git", "GitHub", "Docker"] },
 ];
 
 const socials = [
@@ -138,89 +73,114 @@ const socials = [
     id: 1,
     text: "Github",
     icon: "/icons/github.svg",
-    bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    bg: "#111111",
+    link: "https://github.com/Parthakhil2901",
   },
   {
-    id: 2,
-    text: "Platform",
-    icon: "/icons/atom.svg",
-    bg: "#4bcb63",
-    link: "https://jsmastery.com/",
+    id: "gmail",
+    text: "Email",
+    icon: "/icons/gmail.svg",
+    bg: "#1f2937",
+    link: "mailto:akhileshshukla2901@gmail.com",
   },
   {
-    id: 3,
-    text: "Twitter/X",
-    icon: "/icons/twitter.svg",
-    bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    id: "leetcode",
+    text: "LeetCode",
+    icon: "/icons/leetcode.svg",
+    bg: "#0f172a",
+    link: "https://leetcode.com/u/Akkhi/",
   },
   {
     id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://www.linkedin.com/in/akhilesh-shukla-5b7283248/",
   },
 ];
 
 const photosLinks = [
-  {
-    id: 1,
-    icon: "/icons/gicon1.svg",
-    title: "Library",
-  },
-  {
-    id: 2,
-    icon: "/icons/gicon2.svg",
-    title: "Memories",
-  },
-  {
-    id: 3,
-    icon: "/icons/file.svg",
-    title: "Places",
-  },
-  {
-    id: 4,
-    icon: "/icons/gicon4.svg",
-    title: "People",
-  },
-  {
-    id: 5,
-    icon: "/icons/gicon5.svg",
-    title: "Favorites",
-  },
+  { id: 1, icon: "/icons/gicon1.svg", title: "Library" },
+  { id: 2, icon: "/icons/gicon2.svg", title: "Memories" },
+  { id: 3, icon: "/icons/file.svg", title: "Places" },
+  { id: 4, icon: "/icons/gicon4.svg", title: "People" },
+  { id: 5, icon: "/icons/gicon5.svg", title: "Favorites" },
 ];
 
 const gallery = [
   {
     id: 1,
-    img: "/images/gal1.png",
+    name: "1.jpg",
+    icon: "/images/gallery/1.jpg",
+    imageUrl: "/images/gallery/1.jpg",
+    fileType: "img",
+    kind: "file",
   },
   {
     id: 2,
-    img: "/images/gal2.png",
+    name: "2.jpg",
+    icon: "/images/gallery/2.jpg",
+    imageUrl: "/images/gallery/2.jpg",
+    fileType: "img",
+    kind: "file",
   },
   {
     id: 3,
-    img: "/images/gal3.png",
+    name: "3.jpg",
+    icon: "/images/gallery/3.jpg",
+    imageUrl: "/images/gallery/3.jpg",
+    fileType: "img",
+    kind: "file",
   },
   {
     id: 4,
-    img: "/images/gal4.png",
+    name: "4.jpg",
+    icon: "/images/gallery/4.jpg",
+    imageUrl: "/images/gallery/4.jpg",
+    fileType: "img",
+    kind: "file",
+  },
+  {
+    id: 5,
+    name: "5.jpg",
+    icon: "/images/gallery/5.jpg",
+    imageUrl: "/images/gallery/5.jpg",
+    fileType: "img",
+    kind: "file",
+  },
+  {
+    id: 6,
+    name: "6.jpg",
+    icon: "/images/gallery/6.jpg",
+    imageUrl: "/images/gallery/6.jpg",
+    fileType: "img",
+    kind: "file",
+  },
+  {
+    id: 7,
+    name: "7.jpg",
+    icon: "/images/gallery/7.jpg",
+    imageUrl: "/images/gallery/7.jpg",
+    fileType: "img",
+    kind: "file",
+  },
+  {
+    id: 8,
+    name: "8.jpg",
+    icon: "/images/gallery/8.jpg",
+    imageUrl: "/images/gallery/8.jpg",
+    fileType: "img",
+    kind: "file",
+  },
+  {
+    id: 9,
+    name: "9.webp",
+    icon: "/images/gallery/9.webp",
+    imageUrl: "/images/gallery/9.webp",
+    fileType: "img",
+    kind: "file",
   },
 ];
-
-export {
-  navLinks,
-  navIcons,
-  dockApps,
-  blogPosts,
-  techStack,
-  socials,
-  photosLinks,
-  gallery,
-};
 
 const WORK_LOCATION = {
   id: 1,
@@ -229,18 +189,17 @@ const WORK_LOCATION = {
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
-    // ▶ Project 1
     {
       id: 5,
-      name: "Nike Ecommerce Website Application",
+      name: "RailNetra",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      position: "top-10 left-5",
+      windowPosition: "top-[5vh] left-5",
       children: [
         {
           id: 1,
-          name: "Nike Project.txt",
+          name: "RailNetra Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
@@ -254,16 +213,16 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "nike.com",
+          name: "RailNetra",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+          href: "https://github.com/Parthakhil2901/RailNetra",
           position: "top-10 right-20",
         },
         {
           id: 4,
-          name: "nike.png",
+          name: "RailNetra.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
@@ -281,11 +240,9 @@ const WORK_LOCATION = {
         },
       ],
     },
-
-    // ▶ Project 2
     {
       id: 6,
-      name: "AI Resume Analyzer",
+      name: "Legalese",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
@@ -293,7 +250,7 @@ const WORK_LOCATION = {
       children: [
         {
           id: 1,
-          name: "AI Resume Analyzer Project.txt",
+          name: "Legalese Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
@@ -307,16 +264,16 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "ai-resume-analyzer.com",
+          name: "Legalese",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
+          href: "https://github.com/Parthakhil2901/Legalese",
           position: "top-20 left-20",
         },
         {
           id: 4,
-          name: "ai-resume-analyzer.png",
+          name: "Legalese.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
@@ -334,11 +291,9 @@ const WORK_LOCATION = {
         },
       ],
     },
-
-    // ▶ Project 3
     {
       id: 7,
-      name: "Food Delivery App",
+      name: "Checkmate",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
@@ -346,7 +301,7 @@ const WORK_LOCATION = {
       children: [
         {
           id: 1,
-          name: "Food Delivery App Project.txt",
+          name: "Checkmate Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
@@ -360,21 +315,72 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "food-delivery-app.com",
+          name: "Checkmate",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          href: "https://github.com/Parthakhil2901/Checkmate-Advanced-Attendance-System",
           position: "top-10 right-20",
         },
         {
           id: 4,
-          name: "food-delivery-app.png",
+          name: "Checkmate.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
           position: "top-52 right-80",
           imageUrl: "/images/project-3.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://google.com",
+          position: "top-60 right-20",
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: "Nexora",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-52 left-5",
+      windowPosition: "top-[5vh] left-5",
+      children: [
+        {
+          id: 1,
+          name: "Nexora Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-5 left-10",
+          description: [
+            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
+            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
+            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
+            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+          ],
+        },
+        {
+          id: 2,
+          name: "Nexora",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://github.com/Parthakhil2901/Nexora",
+          position: "top-10 right-20",
+        },
+        {
+          id: 4,
+          name: "Nexora.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-1.png",
         },
         {
           id: 5,
@@ -396,53 +402,38 @@ const ABOUT_LOCATION = {
   name: "About me",
   icon: "/icons/info.svg",
   kind: "folder",
+
   children: [
     {
       id: 1,
-      name: "me.png",
-      icon: "/images/image.png",
-      kind: "file",
+      name: "Akhilesh.jpg",
+      icon: "/images/profile.webp", // put your image here
       fileType: "img",
-      position: "top-10 left-5",
-      imageUrl: "/images/adrian.jpg",
+      kind: "file",
+      position: "top-10 left-10",
     },
     {
       id: 2,
-      name: "casual-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-28 right-72",
-      imageUrl: "/images/adrian-2.jpg",
-    },
-    {
-      id: 3,
-      name: "conference-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-52 left-80",
-      imageUrl: "/images/adrian-3.jpeg",
-    },
-    {
-      id: 4,
-      name: "about-me.txt",
-      icon: "/images/txt.png",
-      kind: "file",
+      name: "about.txt",
+      icon: "/icons/file.svg",
       fileType: "txt",
-      position: "top-60 left-5",
-      subtitle: "Meet the Developer Behind the Code",
-      image: "/images/adrian.jpg",
+      kind: "file",
+      position: "top-10 left-32",
+
+      // 🔥 MATCHES Text.jsx EXPECTATION
+      subtitle: "About Me",
+
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+        "Hey! I'm Akhilesh 🚀",
+        "A B.Tech CSE student passionate about building impactful tech.",
+        "I work across Full Stack Development, AI/ML, System Design, and DevOps.",
+        "Built projects like RailNetra, Legalese, Checkmate, and Nexora.",
+        "Currently focused on cracking MAANG, winning hackathons, and building scalable systems.",
+        "Let’s build something crazy 🔥",
       ],
     },
   ],
 };
-
 const RESUME_LOCATION = {
   id: 3,
   type: "resume",
@@ -456,8 +447,6 @@ const RESUME_LOCATION = {
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
-      // you can add `href` if you want to open a hosted resume
-      // href: "/your/resume/path.pdf",
     },
   ],
 };
@@ -468,26 +457,16 @@ const TRASH_LOCATION = {
   name: "Trash",
   icon: "/icons/trash.svg",
   kind: "folder",
-  children: [
-    {
-      id: 1,
-      name: "trash1.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-10 left-10",
-      imageUrl: "/images/trash-1.png",
-    },
-    {
-      id: 2,
-      name: "trash2.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-40 left-80",
-      imageUrl: "/images/trash-2.png",
-    },
-  ],
+  children: [],
+};
+
+const GALLERY_LOCATION = {
+  id: 5,
+  type: "gallery",
+  name: "Gallery",
+  icon: "/images/folder.png",
+  kind: "folder",
+  children: gallery,
 };
 
 export const locations = {
@@ -495,6 +474,7 @@ export const locations = {
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
+  gallery: GALLERY_LOCATION, // 🔥 FIXED CONNECTION
 };
 
 const INITIAL_Z_INDEX = 1000;
@@ -510,4 +490,15 @@ const WINDOW_CONFIG = {
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
 
-export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+export {
+  navLinks,
+  navIcons,
+  dockApps,
+  blogPosts,
+  techStack,
+  socials,
+  photosLinks,
+  gallery,
+  INITIAL_Z_INDEX,
+  WINDOW_CONFIG,
+};

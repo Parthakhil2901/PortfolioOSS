@@ -5,10 +5,13 @@ import useLocationStore from "#store/location";
 import useWindowStore from "#store/window.js";
 import { locations } from "#constants";
 import clsx from "clsx";
+import { useState } from "react"; // 🔥 ADDED
 
 const Finder = () => {
   const { activeLocation, setActiveLocation } = useLocationStore();
   const { openWindow } = useWindowStore();
+
+  const [preview, setPreview] = useState(null); // 🔥 ADDED
 
   // 🔥 FIXED: REAL BEHAVIOR
   const openItem = (item) => {
@@ -26,13 +29,13 @@ const Finder = () => {
 
     // 🖼 Image → open image
     if (item.fileType === "img" && item.imageUrl) {
-      window.open(item.imageUrl, "_blank");
+      setPreview(item.imageUrl); // 🔥 CHANGED (was window.open)
       return;
     }
 
     // 📄 PDF
     if (item.fileType === "pdf") {
-      window.open("/files/resume.pdf", "_blank"); // adjust path if needed
+      window.open("/files/resume.pdf", "_blank");
       return;
     }
 
@@ -96,9 +99,9 @@ const Finder = () => {
                 onClick={() => openItem(item)}
               >
                 <img
-                  src={item.icon}
+                  src={item.imageUrl || item.icon}
                   alt={item.name}
-                  className="w-12 transition group-hover:scale-110"
+                  className="w-12 h-12 object-cover transition group-hover:scale-110"
                 />
                 <p className="text-xs mt-1 text-center w-24 truncate">
                   {item.name}
@@ -108,6 +111,19 @@ const Finder = () => {
           </ul>
         </div>
       </div>
+
+      {/* 🔥 IMAGE PREVIEW OVERLAY (ADDED) */}
+      {preview && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]"
+          onClick={() => setPreview(null)}
+        >
+          <img
+            src={preview}
+            className="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+          />
+        </div>
+      )}
     </>
   );
 };

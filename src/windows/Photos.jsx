@@ -20,7 +20,7 @@ const Photos = () => {
               className="overflow-hidden rounded-lg cursor-pointer group"
             >
               <img
-                src={item.img}
+                src={item.imageUrl || item.icon}
                 alt="gallery"
                 className="w-full h-full object-cover transition duration-300 group-hover:scale-110"
               />
