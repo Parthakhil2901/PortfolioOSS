@@ -1,9 +1,10 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { wallpapers } from "#constants";
 
 const FONT_WEIGHTS = {
-  subtitle: { min: 100, max: 400, default: 100 },
+  subtitle: { min: 300, max: 600, default: 300 },
   title: { min: 400, max: 900, default: 400 },
 };
 
@@ -22,14 +23,6 @@ const renderText = (text, className, baseWeight = 400) => {
 const setupTextHover = (container, type) => {
   if (!container) return () => {};
 
-  const animateLetter = (letter, weight, duration = 0.25) => {
-    return gsap.to(letter, {
-      fontVariationSettings: `"wght" ${weight}`,
-      duration,
-      ease: "power2.out",
-    });
-  };
-
   const letters = container.querySelectorAll("span");
   const { min, max } = FONT_WEIGHTS[type];
 
@@ -43,9 +36,6 @@ const setupTextHover = (container, type) => {
 
       const distance = Math.abs(mouseX - center);
       const intensity = Math.exp(-(distance ** 2) / 2000);
-
-      animateLetter(letter, min + (max - min) * intensity);
-
       const weight = min + (max - min) * intensity;
 
       gsap.to(letter, {
@@ -78,6 +68,22 @@ const Welcome = () => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
 
+  // 🔥 NO-FLICKER RANDOM WALLPAPER (runs before render)
+  const [wallpaper] = useState(() => {
+    return wallpapers[Math.floor(Math.random() * wallpapers.length)];
+  });
+
+  // 🔥 PRELOAD IMAGE (ensures smooth load)
+  useEffect(() => {
+    const img = new Image();
+    img.src = wallpaper.src;
+  }, [wallpaper]);
+
+  // 🔥 GLOBAL THEME SYNC
+  useEffect(() => {
+    document.body.dataset.theme = wallpaper.tone;
+  }, [wallpaper]);
+
   useGSAP(() => {
     const titleCleanup = setupTextHover(titleRef.current, "title");
     const subtitleCleanup = setupTextHover(subtitleRef.current, "subtitle");
@@ -94,16 +100,31 @@ const Welcome = () => {
   }, []);
 
   return (
-    <section id="welcome">
-      <p ref={subtitleRef}>
+    <section
+      id="welcome"
+      className={`relative w-full h-full ${
+        wallpaper.tone === "dark" ? "text-white" : "text-black"
+      }`}
+    >
+      {/* 🔥 BACKGROUND */}
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${wallpaper.src})` }}
+      />
+
+      {/* 🔥 OVERLAY FOR CONSISTENT CONTRAST */}
+      <div className="absolute inset-0 -z-10 bg-black/10" />
+
+      {/* 🔥 CONTENT */}
+      <p ref={subtitleRef} className="drop-shadow-lg">
         {renderText(
           "Hey! I`m Akhilesh Welcome to my",
           "text-3xl font-georama",
-          100,
+          300
         )}
       </p>
 
-      <h1 ref={titleRef} className="mt-7">
+      <h1 ref={titleRef} className="mt-7 drop-shadow-lg">
         {renderText("Portfolio", "text-9xl italic font-georama")}
       </h1>
 

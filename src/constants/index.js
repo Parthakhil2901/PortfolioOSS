@@ -35,6 +35,13 @@ const navIcons = [
   },
 ];
 
+const wallpapers = [
+  { src: "/images/wallpaper.png", tone: "dark" },
+  { src: "/images/wallpaper1.png", tone: "light" },
+  { src: "/images/wallpaper2.jpg", tone: "dark" },
+];
+
+export { wallpapers };
 const dockApps = [
   {
     id: "finder",

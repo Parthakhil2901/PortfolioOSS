@@ -8,13 +8,13 @@ gsap.registerPlugin(Draggable);
 
 const WindowWrapper = (Component, windowKey) => {
   const Wrapped = (props) => {
-    const { windows, focusWindow, closeWindow } = useWindowStore();
+    const { windows, focusWindow } = useWindowStore();
     const windowState = windows[windowKey] || {};
     const { isOpen, zIndex } = windowState;
 
     const ref = useRef(null);
 
-    // 🔥 OPEN + CLOSE ANIMATION (UNIFIED)
+    // 🔥 OPEN + CLOSE ANIMATION (UNCHANGED, CLEANED)
     useLayoutEffect(() => {
       const el = ref.current;
       if (!el) return;
@@ -48,7 +48,7 @@ const WindowWrapper = (Component, windowKey) => {
       }
     }, [isOpen]);
 
-    // 🔹 DRAGGABLE
+    // 🔹 DRAGGABLE (UNCHANGED)
     useGSAP(() => {
       const el = ref.current;
       if (!el) return;
@@ -60,7 +60,7 @@ const WindowWrapper = (Component, windowKey) => {
       return () => instance.kill();
     }, []);
 
-    // 🔥 CLICK OUTSIDE TO CLOSE
+    // 🔥 CLICK OUTSIDE → UNFOCUS (NOT CLOSE)
     useEffect(() => {
       if (!isOpen) return;
 
@@ -68,11 +68,13 @@ const WindowWrapper = (Component, windowKey) => {
         const el = ref.current;
         if (!el) return;
 
+        // ignore clicks inside window OR dock
         if (el.contains(e.target) || e.target.closest("#dock")) {
           return;
         }
 
-        closeWindow(windowKey);
+        // 🔥 UNFOCUS → send window to back
+        el.style.zIndex = 1;
       };
 
       const timeout = setTimeout(() => {
@@ -83,10 +85,18 @@ const WindowWrapper = (Component, windowKey) => {
         clearTimeout(timeout);
         document.removeEventListener("click", handleClickOutside);
       };
-    }, [isOpen, closeWindow, windowKey]);
+    }, [isOpen]);
 
     return (
-      <section id={windowKey} ref={ref} style={{ zIndex }} className="absolute">
+      <section
+        id={windowKey}
+        ref={ref}
+        style={{
+          zIndex,
+          display: isOpen ? "block" : "none",
+        }}
+        className="absolute w-[800px] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl overflow-hidden shadow-2xl transition-all duration-200"
+      >
         <Component {...props} />
       </section>
     );
