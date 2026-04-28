@@ -17,7 +17,7 @@ const Contact = () => {
           {/* LEFT */}
           <div className="flex flex-col items-center text-center space-y-4">
             <img
-              src="/images/Akhilesh.webp"
+              src="/images/profile.webp"
               alt="Akhilesh"
               className="w-24 h-24 rounded-full object-cover shadow-md"
             />

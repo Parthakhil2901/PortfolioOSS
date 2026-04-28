@@ -396,7 +396,7 @@ body {
 }
 body {
   cursor:
-    url("/cursors/cursor-light.png") 4 4,
+    url("/cursors/default.png") 4 4,
     auto;
 }
 
@@ -406,6 +406,6 @@ li,
 .icon,
 .dock-icon {
   cursor:
-    url("/cursors/pointer.png") 8 8,
+    url("/cursors/handpointing.png") 8 8,
     pointer;
 }
