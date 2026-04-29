@@ -8,7 +8,7 @@ Instead of a conventional scrollable website, this project lets users explore pr
 
 ## 🎬 Demo
 
-[![Watch Demo](./images/preview.png)](https://drive.google.com/file/d/1dZH6AieP7_UU2OYOD8nPbVsOMCQ4-Fy1/view)
+[![Watch Demo](./public/images/preview.png)](https://drive.google.com/file/d/1dZH6AieP7_UU2OYOD8nPbVsOMCQ4-Fy1/view)
 
 ---
 
@@ -41,7 +41,7 @@ Instead of a conventional scrollable website, this project lets users explore pr
 
 ## 🖼️ Preview
 
-![Portfolio Preview](./images/preview.png)
+![Portfolio Preview](./public/images/preview.png)
 
 ---
 
