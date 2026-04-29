@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import useWindowStore from "#store/window";
 import { useGSAP } from "@gsap/react";
@@ -13,8 +13,8 @@ const WindowWrapper = (Component, windowKey) => {
     const { isOpen, zIndex } = windowState;
 
     const ref = useRef(null);
+    const suppressClickRef = useRef(false);
 
-    // 🔥 OPEN + CLOSE ANIMATION (UNCHANGED, CLEANED)
     useLayoutEffect(() => {
       const el = ref.current;
       if (!el) return;
@@ -48,44 +48,39 @@ const WindowWrapper = (Component, windowKey) => {
       }
     }, [isOpen]);
 
-    // 🔹 DRAGGABLE (UNCHANGED)
     useGSAP(() => {
       const el = ref.current;
       if (!el) return;
 
+      Draggable.get(el)?.kill();
+
+      const header = el.querySelector("#window-header");
       const [instance] = Draggable.create(el, {
-        onPress: () => focusWindow(windowKey),
+        trigger: header || el,
+        minimumMovement: 8,
+        onPress(event) {
+          this.wasDragging = false;
+          focusWindow(windowKey);
+
+          if (event?.target?.closest?.("#window-controls")) {
+            this.endDrag(event);
+          }
+        },
+        onDrag() {
+          this.wasDragging = true;
+        },
+        onRelease() {
+          if (this.wasDragging) {
+            suppressClickRef.current = true;
+            requestAnimationFrame(() => {
+              suppressClickRef.current = false;
+            });
+          }
+        },
       });
 
       return () => instance.kill();
     }, []);
-
-    // 🔥 CLICK OUTSIDE → UNFOCUS (NOT CLOSE)
-    useEffect(() => {
-      if (!isOpen) return;
-
-      const handleClickOutside = (e) => {
-        const el = ref.current;
-        if (!el) return;
-
-        // ignore clicks inside window OR dock
-        if (el.contains(e.target) || e.target.closest("#dock")) {
-          return;
-        }
-
-        // 🔥 UNFOCUS → send window to back
-        el.style.zIndex = 1;
-      };
-
-      const timeout = setTimeout(() => {
-        document.addEventListener("click", handleClickOutside);
-      }, 0);
-
-      return () => {
-        clearTimeout(timeout);
-        document.removeEventListener("click", handleClickOutside);
-      };
-    }, [isOpen]);
 
     return (
       <section
@@ -94,6 +89,11 @@ const WindowWrapper = (Component, windowKey) => {
         style={{
           zIndex,
           display: isOpen ? "block" : "none",
+        }}
+        onClickCapture={(e) => {
+          if (!suppressClickRef.current) return;
+          e.preventDefault();
+          e.stopPropagation();
         }}
         className="absolute w-[800px] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl overflow-hidden shadow-2xl transition-all duration-200"
       >

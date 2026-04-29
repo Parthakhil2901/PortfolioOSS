@@ -1,8 +1,11 @@
 import WindowWrapper from "#hoc/WindowWrapper";
 import { WindowControls } from "#components";
 import { gallery } from "#constants";
+import useWindowStore from "#store/window";
 
 const Photos = () => {
+  const { openWindow } = useWindowStore();
+
   return (
     <>
       {/* HEADER */}
@@ -18,6 +21,7 @@ const Photos = () => {
             <div
               key={item.id}
               className="overflow-hidden rounded-lg cursor-pointer group"
+              onClick={() => openWindow("image", item)}
             >
               <img
                 src={item.imageUrl || item.icon}

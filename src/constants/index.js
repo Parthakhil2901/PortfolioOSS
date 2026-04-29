@@ -195,7 +195,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5",
-      windowPosition: "top-[5vh] left-5",
+      windowPosition: "top-[15vh] right-20",
       children: [
         {
           id: 1,
@@ -205,10 +205,10 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "The RailNetra platform is an intelligent railway monitoring and optimization system designed to reduce congestion and improve operational efficiency across rail networks.",
+            "Instead of a basic tracking system, it processes real-time data streams and applies algorithmic optimization to reduce delays by up to 20–30% in simulated scenarios.",
+            "Think of it as giving railways a decision-making engine—analyzing multiple routes, predicting bottlenecks, and handling scheduling for thousands of passengers in real time.",
+            "It's built using modern web technologies and optimization algorithms, ensuring fast performance, scalable architecture, and the ability to handle large-scale transportation data efficiently.",
           ],
         },
         {
@@ -256,10 +256,10 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 right-10",
           description: [
-            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
+            "The Legalese platform is an AI-powered legal document simplification tool designed to make complex legal text easy to understand.",
+            "Instead of manually decoding lengthy contracts, it uses NLP techniques to reduce reading complexity by up to 40–60% in structured test cases.",
+            "Think of it like having a legal translator—breaking down dense clauses into simple, human-readable language in seconds.",
+            "It's built using modern AI/NLP pipelines and scalable backend architecture, ensuring fast processing, high accuracy, and seamless handling of large documents.",
           ],
         },
         {
@@ -307,10 +307,10 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-            "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-            "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
+            "The Checkmate system is a smart attendance management platform designed to automate and secure attendance tracking.",
+            "Instead of manual roll calls, it processes real-time inputs and reduces attendance fraud by up to 80% in controlled scenarios.",
+            "Think of it like a digital invigilator—tracking presence accurately while saving hours of administrative effort.",
+            "It's built with scalable backend systems and optimized data handling, ensuring reliable performance even with hundreds of concurrent users.",
           ],
         },
         {
@@ -358,10 +358,10 @@ const WORK_LOCATION = {
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "The Nexora platform is a modern productivity and digital experience system designed to streamline workflows and enhance user engagement.",
+            "Instead of fragmented tools, it integrates multiple functionalities into a unified interface, improving task efficiency by up to 30% in usage testing.",
+            "Think of it like a personal digital workspace—bringing together tools, insights, and automation in one place.",
+            "It's built using modern full-stack technologies, ensuring fast performance, responsive design, and scalability for real-world usage.",
           ],
         },
         {
@@ -487,6 +487,7 @@ const WINDOW_CONFIG = {
   photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  image: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
 
