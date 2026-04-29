@@ -1,16 +1,88 @@
-# React + Vite
+# 🚀 macOS Style Interactive Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive developer portfolio that mimics a real macOS desktop experience.
 
-Currently, two official plugins are available:
+Instead of a conventional scrollable website, this project lets users explore projects, open files, drag windows, and interact with UI elements — just like using an actual operating system.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎬 Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[![Watch Demo](./images/preview.png)](https://drive.google.com/file/d/1dZH6AieP7_UU2OYOD8nPbVsOMCQ4-Fy1/view)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Website
+
+**🔗 [https://akhilesh-sooty.vercel.app/](https://akhilesh-sooty.vercel.app/)**
+
+---
+
+## ✨ Features
+
+- 🗂 **Finder-style Navigation** – Browse projects like folders
+- 🖼 **Interactive Gallery** – Open and view images in draggable windows
+- 📄 **Text-based About Section** – Styled like a macOS file preview
+- 🖱 **Draggable Windows & Icons** – Realistic desktop interaction
+- 🎨 **Dynamic Wallpapers** – Randomly changing backgrounds
+- ⚡ **Smooth Animations** – Powered by GSAP
+- 🧠 **State Management** – Handled with Zustand
+
+---
+
+## 🧰 Tech Stack
+
+- **React** (with Vite)
+- **Tailwind CSS**
+- **GSAP** (Animations & Draggable)
+- **Zustand** (State Management)
+
+---
+
+## 🖼️ Preview
+
+![Portfolio Preview](./images/preview.png)
+
+---
+
+## 🏗️ Project Structure
+
+```bash
+src/
+├── components/
+├── windows/
+├── store/
+├── constants/
+├── hoc/
+
+```
+
+⚙️ Installation
+
+```bash
+git clone https://github.com/Parthakhil2901/your-repo.git
+cd your-repo
+npm install
+npm run dev
+```
+
+🚀 Deployment
+This project is deployed on Vercel.
+
+
+🙌 Inspiration
+Inspired by macOS user interface and the amazing work of Adrian Hajdin (JavaScript Mastery).
+
+
+
+📬 Connect With Me
+
+🌐 Portfolio: https://akhilesh-sooty.vercel.app/
+💼 LinkedIn: https://linkedin.com/in/your-profile
+💻 GitHub: https://github.com/Parthakhil2901
+
+
+⭐ Support
+If you enjoyed this project, feel free to give it a ⭐ on GitHub!
+
+Made with ❤️ and a lot of macOS inspiration.
