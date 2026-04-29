@@ -23,14 +23,48 @@ const renderText = (text, className, baseWeight = 400) => {
 const setupTextHover = (container, type) => {
   if (!container) return () => {};
 
-  const letters = container.querySelectorAll("span");
-  const { min, max } = FONT_WEIGHTS[type];
+  const letters = Array.from(container.querySelectorAll("span"));
+  const { min, max, default: defaultWeight } = FONT_WEIGHTS[type];
+  let isActive = false;
+  const letterTweens = letters.map((letter) => {
+    const state = { weight: defaultWeight };
+    const tweenTo = gsap.quickTo(state, "weight", {
+      duration: 0.3,
+      ease: "power2.out",
+      onUpdate: () => {
+        letter.style.fontVariationSettings = `"wght" ${state.weight}`;
+      },
+    });
+
+    return { state, tweenTo };
+  });
+
+  const resetLetters = () => {
+    if (!isActive) return;
+    isActive = false;
+
+    letterTweens.forEach(({ tweenTo }) => {
+      tweenTo(defaultWeight);
+    });
+  };
 
   const handleMouseMove = (e) => {
-    const { left } = container.getBoundingClientRect();
+    const { left, right, top, bottom } = container.getBoundingClientRect();
+
+    if (
+      e.clientX < left ||
+      e.clientX > right ||
+      e.clientY < top ||
+      e.clientY > bottom
+    ) {
+      resetLetters();
+      return;
+    }
+
+    isActive = true;
     const mouseX = e.clientX - left;
 
-    letters.forEach((letter) => {
+    letters.forEach((letter, index) => {
       const { left: l, width: w } = letter.getBoundingClientRect();
       const center = l - left + w / 2;
 
@@ -38,29 +72,24 @@ const setupTextHover = (container, type) => {
       const intensity = Math.exp(-(distance ** 2) / 2000);
       const weight = min + (max - min) * intensity;
 
-      gsap.to(letter, {
-        fontVariationSettings: `"wght" ${weight}`,
-        duration: 0.3,
-        ease: "power2.out",
-      });
+      letterTweens[index].tweenTo(weight);
     });
   };
 
   const handleMouseLeave = () => {
-    letters.forEach((letter) => {
-      gsap.to(letter, {
-        fontVariationSettings: `"wght" ${FONT_WEIGHTS[type].default}`,
-        duration: 0.3,
-      });
-    });
+    resetLetters();
   };
 
-  container.addEventListener("mousemove", handleMouseMove);
-  container.addEventListener("mouseleave", handleMouseLeave);
+  document.addEventListener("mousemove", handleMouseMove);
+  document.addEventListener("mouseleave", handleMouseLeave);
 
   return () => {
-    container.removeEventListener("mousemove", handleMouseMove);
-    container.removeEventListener("mouseleave", handleMouseLeave);
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseleave", handleMouseLeave);
+    letterTweens.forEach(({ state, tweenTo }) => {
+      tweenTo.tween?.kill();
+      gsap.killTweensOf(state);
+    });
   };
 };
 
@@ -94,15 +123,10 @@ const Welcome = () => {
     };
   });
 
-  useEffect(() => {
-    setupTextHover(titleRef.current, "title");
-    setupTextHover(subtitleRef.current, "subtitle");
-  }, []);
-
   return (
     <section
       id="welcome"
-      className={`relative w-full h-full ${
+      className={`pointer-events-none relative w-full h-full ${
         wallpaper.tone === "dark" ? "text-white" : "text-black"
       }`}
     >
@@ -116,15 +140,15 @@ const Welcome = () => {
       <div className="absolute inset-0 -z-10 bg-black/10" />
 
       {/* 🔥 CONTENT */}
-      <p ref={subtitleRef} className="drop-shadow-lg">
+      <p ref={subtitleRef} className="relative z-10 drop-shadow-lg">
         {renderText(
           "Hey! I`m Akhilesh Welcome to my",
           "text-3xl font-georama",
-          300
+          300,
         )}
       </p>
 
-      <h1 ref={titleRef} className="mt-7 drop-shadow-lg">
+      <h1 ref={titleRef} className="relative z-10 mt-7 drop-shadow-lg">
         {renderText("Portfolio", "text-9xl italic font-georama")}
       </h1>
 
